@@ -1,0 +1,51 @@
+.code-editor {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 500px;
+    margin: 50px auto;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #ddd;
+  }
+  
+  .code-editor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #0277bd;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .save-button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #0277bd;
+    border: 1px solid #0277bd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .save-button:hover {
+    background-color: #0277bd;
+    color: #fff;
+  }
+  
+  .code-input {
+    flex: 1;
+    padding: 20px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    resize: none;
+    outline: none;
+  }
+  

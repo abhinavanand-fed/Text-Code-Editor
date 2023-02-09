@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./CodeEditor.css";
 
-function App() {
+const CodeEditor = () => {
+  const [code, setCode] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("Javascript");
+
+  const handleCodeChange = (event) => {
+    setCode(event.target.value);
+  };
+
+  const handleSave = () => {
+    const file = new Blob([code], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.download = `code-${selectedLanguage}.txt`;
+    link.href = URL.createObjectURL(file);
+    link.click();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="code-editor">
+      <div className="code-editor-header">
+        <h3>Text Editor</h3>
+        <select
+          className="language-select"
+          value={selectedLanguage}
+          onChange={(event) => setSelectedLanguage(event.target.value)}
         >
-          Learn React
-        </a>
-      </header>
+          <option value="Javascript">Javascript</option>
+          <option value="Python">Python</option>
+        </select>
+        <button className="save-button" onClick={handleSave}>
+          Save
+        </button>
+      </div>
+      <textarea
+        className="code-input"
+        value={code}
+        onChange={handleCodeChange}
+      />
     </div>
   );
-}
+};
 
-export default App;
+export default CodeEditor;
